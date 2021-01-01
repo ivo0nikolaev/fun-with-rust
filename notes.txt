@@ -1,0 +1,99 @@
+Notes:
+Rust needs a file with main() to run.
+    minimum Rust app
+    fn main() {
+    println!("Hello, world!");
+    }
+
+Cargo  -> Rust package manager
+
+!! Rust uses "crates" not "packages' or "libs"
+
+$> rustc file.rust - compiles the file automatically
+
+rustfmt - formats rust in a stadard style
+
+$ cargo new hello_cargo --bin 
+    Creates a project folder(hello_cargo)
+    --bin passed makes un executable instead of a library
+
+Inside that folder we have
+    Cargo.toml -> You config/dependency file (maven/pacakge.json)
+
+    scr/ -> source
+
+Running a Cargo project
+    $cargo build
+    it complies our code (in a dev version) and adds adds:
+    cargo.lock (package-lock in node ??)
+    target -> 
+    it adds an executable in target/debug/hello_cargo
+    We can just call it from CLI to run it.
+
+    $cargo run
+    -> the same, but it also runs the main.
+    -> it will only complie what it has been added/modded
+
+    $cargo check
+    does "check" your code compiles, but it doesnt build an executable
+    good for development, since it's much faster
+
+
+Varuables
+
+    //Imutable
+    let car_barnd = "VW"
+
+    //Muttable
+    let mut miliage = 23
+
+Rust compile can infer most type, but rust is strongly typed
+
+    :: - means assosition
+
+    String::new() -> New is an associated fn of String
+
+    exmp -> let mut guess = String::new()
+
+Errors:
+    io::stdin().read_line(&mut guess)
+    .expect("Failure to read input!");
+
+    .expect will throw an error.
+    cargo will warn if you need to add except
+
+dependencies:
+
+    in Cargo.toml:
+
+    [dependencies]
+
+    rand = "0.3.14"
+
+    -> Next time you run cargo build, it will fetch that specific package
+    
+    Cargo fetches everything from a register at https://crates.io
+    You can post oss there.
+
+using standard (std) libs/crates (also reading console input):
+    use std::io; -> import the standard io crate
+
+    use tells Rust what to use. But If it has to be an external crate,
+    it needs to be imported first.
+
+using external crates:
+
+    in file:
+    extern crate rand; // import a 3rd party 
+
+    use rand::Rng; // Use Rng from package rand, kind of. 
+
+        This line will tell Rust, to use a specific traits from the Rand package.
+        This will define specific methods, that Rand will implement. 
+
+!!! magic
+
+    >cargo doc --open
+    it will display an HTML with all the relevent documentation for the current project 
+    Like installed libraries and how they are used And it's gooooooood!
+

@@ -2,13 +2,15 @@
 
 // mod print;
 // mod vars;
+// mod types;
 
-mod types;
+mod strings;
 
 fn main() {
     // :: call a function
     // print::run();
+    // types::run();
 
-    types::run();
+    strings::run();
 }    
 
